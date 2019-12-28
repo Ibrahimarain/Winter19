@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
     EditText name,email,phoneNumber,requestText;
     Button btnSubmit;
-    Spinner departmentSpinner;
+    ListView departmentSpinner;
     ArrayList<String> departmentList;
     ArrayAdapter<String> departmentAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,31 +53,19 @@ public class MainActivity extends AppCompatActivity {
                 String nameValue = name.getText().toString();
                 String emailValue = email.getText().toString();
                 String phoneValue = phoneNumber.getText().toString();
-                String requesTextValue = requestText.getText().toString();
+                String requestTextValue = requestText.getText().toString();
                 int departmentValue = 0;
 
                 if (departmentSpinner.getSelectedItemPosition() > 0 ){
                     departmentValue = departmentSpinner.getSelectedItemPosition();
-                    Log.i("Form",nameValue+"\t"+emailValue+"\t"+phoneValue+"\t"+requesTextValue+"\t"+departmentList.get(departmentValue));
+                    Log.i("Form",nameValue+"\t"+emailValue+"\t"+phoneValue+"\t"+requestTextValue+"\t"+departmentList.get(departmentValue));
                     Toast.makeText(MainActivity.this,"Submitted",Toast.LENGTH_LONG).show();
 
                 }else {
                     Toast.makeText(MainActivity.this,"Please Select Department",Toast.LENGTH_LONG).show();
                 }
-
-
-
-
             }
         });
-
-
-
-
-
-
-
-
 
     }
 }
